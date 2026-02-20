@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/chapter4.rpy", line 381: Only one say menuitem may exist per menu.
-    mei_inner "Thì bản chất thật của mình là gì?"
-                                       ^
-
-File "game/chapter6.rpy", line 218: Only one say menuitem may exist per menu.
-    mei_inner "Hôm nay nó đứng trước mặt mình và không chịu đi."
-                                                   ^
+File "game/chapter1.rpy", line 82: end of line expected.
+    scene bg school_gate.png
+                        ^
 
 Ren'Py Version: Ren'Py 8.5.2.26010301
-Fri Feb 20 12:44:46 2026
+Sat Feb 21 02:32:28 2026

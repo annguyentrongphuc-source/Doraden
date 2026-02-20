@@ -79,6 +79,7 @@ label chapter1_start:
     mei_inner "Thôi. Đếm tiếp. 248. 249. 250."
 
     ## [BG: bg school_gate — School gate, students streaming in]
+    scene school_gate
     scene_desc "Cổng trường xuất hiện trước mặt. Từng đám học sinh ùa vào, cười nói rôm rả."
 
     mei_inner "Và... Action."
@@ -87,6 +88,7 @@ label chapter1_start:
     scene_desc "Lưng thẳng hơn. Bước chân nhẹ nhàng hơn. Nụ cười — ON."
 
     classmate "Ê Mai! Sáng nay đẹp quá ha!"
+    show mei happy
     mei "Cám ơn nha! *cười* Bữa nay trời đẹp mà, ai cũng đẹp lên hết á."
 
     mei_inner "Script số 14: \"Khen lại khi được khen.\" Đơn giản. Hiệu quả. Không ai nghi ngờ."
@@ -94,7 +96,7 @@ label chapter1_start:
     classmate "Mai ơi, bữa nay kiểm tra Toán ha. Mày ôn chưa?"
     mei "Ôn rồi chứ! Cũng không khó lắm đâu, cố lên nha! *nháy mắt*"
 
-    mei_inner "\"Không khó lắm.\" Mình thức tới 2 giờ sáng. Uống 3 ly cà phê. Gần khóc 2 lần."
+    mei_inner "\"Không khó lắm.\" Mình thức tới 3 giờ sáng. Uống 3 ly cà phê. Gần khóc 2 lần."
     mei_inner "Nhưng đó là chuyện của Mei-bên-trong. Mei-bên-ngoài thì luôn sẵn sàng."
 
     ## --------------------------------------------------------
