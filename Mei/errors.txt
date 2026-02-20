@@ -1,0 +1,14 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/chapter4.rpy", line 381: Only one say menuitem may exist per menu.
+    mei_inner "Thì bản chất thật của mình là gì?"
+                                       ^
+
+File "game/chapter6.rpy", line 218: Only one say menuitem may exist per menu.
+    mei_inner "Hôm nay nó đứng trước mặt mình và không chịu đi."
+                                                   ^
+
+Ren'Py Version: Ren'Py 8.5.2.26010301
+Fri Feb 20 12:44:46 2026
