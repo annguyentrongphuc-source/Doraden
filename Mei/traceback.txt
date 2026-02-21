@@ -1,15 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/chapter2.rpy", line 73, in script
-    mei_inner "\"khi ai hỏi 'mày ổn không?' và mày nói 'ổn' trong khi đang chết bên trong\""
+  File "game/chapter1.rpy", line 157, in script
+    mei_inner "Đây rồi."
 AttributeError: 'Layout' object has no attribute 'yesno_prompt'
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/chapter2.rpy", line 73, in script
-    mei_inner "\"khi ai hỏi 'mày ổn không?' và mày nói 'ổn' trong khi đang chết bên trong\""
+  File "game/chapter1.rpy", line 157, in script
+    mei_inner "Đây rồi."
   File "renpy/ast.py", line 2925, in execute
     Say.execute(self)
     ~~~~~~~~~~~^^^^^^
@@ -67,4 +67,4 @@ AttributeError: 'Layout' object has no attribute 'yesno_prompt'
 Linux-6.17.0-14-generic-x86_64-with-glibc2.39 x86_64
 Ren'Py 8.5.2.26010301
 Mei — Alien Giữa Loài Người 0.1
-Sat Feb 21 02:28:33 2026
+Sat Feb 21 10:01:33 2026

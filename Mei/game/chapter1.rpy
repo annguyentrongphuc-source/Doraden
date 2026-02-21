@@ -11,12 +11,14 @@ label chapter1_start:
     ## --------------------------------------------------------
 
     scene black
-    ## [BG: bg mei_room_dark — Mei's bedroom, dark, alarm clock glowing]
+    with fade
+
+    scene bg/mei_room_dark
+    with dissolve
 
     scene_desc "5:30 sáng. Căn phòng tối om, chỉ có ánh đèn điện thoại nhấp nháy."
 
-    play sound "audio/alarm.ogg" ## [SFX: alarm — add later]
-    ## If no audio file exists, Ren'Py will simply skip it.
+    play sound "audio/alarm.ogg"
 
     mei_inner "..."
     mei_inner "Lại một ngày nữa."
@@ -25,7 +27,9 @@ label chapter1_start:
 
     mei_inner "3 tiếng ngủ. Kỷ lục mới. Nên tự hào hay tự thương nhỉ."
 
-    ## [BG: bg mei_room_morning — Same room, lights on]
+    scene bg/mei_room_morning
+    with dissolve
+
     scene_desc "Mei bật đèn. Căn phòng hiện ra — gọn gàng đến ám ảnh. Sách giáo khoa xếp theo thứ tự bìa, bút highlight xếp theo màu cầu vồng."
 
     mei_inner "Okay. Checklist buổi sáng."
@@ -33,13 +37,23 @@ label chapter1_start:
     mei_inner "Tóc — buộc gọn, không một sợi lạc. Cặp — đủ sách, đủ vở, đủ bút."
     mei_inner "Và quan trọng nhất..."
 
+    show mei neutral at center
+    with dissolve
+
     scene_desc "Mei đứng trước gương. Hít một hơi thật sâu."
 
     mei_inner "Nụ cười."
 
+    hide mei neutral
+    show mei mask_on at center
+    with dissolve
+
     scene_desc "Khóe môi cong lên hoàn hảo. Đôi mắt sáng lên đúng mức. Không quá vui — sẽ trông giả tạo. Không quá nhạt — sẽ khiến người ta hỏi \"sao hôm nay mày buồn vậy?\""
 
     mei_inner "Hoàn hảo. Như mọi ngày."
+
+    hide mei mask_on
+    with dissolve
 
     ## CHOICE 1: Morning Phone Check
     menu:
@@ -69,8 +83,12 @@ label chapter1_start:
     ## PART 2: ĐƯỜNG ĐẾN TRƯỜNG — THE WALK TO SCHOOL
     ## --------------------------------------------------------
 
-    scene black with fade
-    ## [BG: bg street_morning — Morning street, sun rising]
+    scene black
+    with fade
+
+    scene bg/street_morning
+    with fade
+
     scene_desc "Đường phố buổi sáng. Xe cộ qua lại, tiếng rao hàng rong vọng từ xa."
 
     mei_inner "Bước chân thứ 247 tới trường. Mình đếm mỗi ngày. Không phải vì thích đếm."
@@ -78,23 +96,38 @@ label chapter1_start:
     mei_inner "Nghĩ về bài kiểm tra hôm nay. Nghĩ về mấy cái deadline. Nghĩ về..."
     mei_inner "Thôi. Đếm tiếp. 248. 249. 250."
 
-    ## [BG: bg school_gate — School gate, students streaming in]
-    scene school_gate
+    scene bg/school_gate
+    with fade
+
     scene_desc "Cổng trường xuất hiện trước mặt. Từng đám học sinh ùa vào, cười nói rôm rả."
 
     mei_inner "Và... Action."
 
+    show mei neutral at center
+    with dissolve
+
     scene_desc "Như thể có ai bấm nút switch, toàn bộ ngôn ngữ cơ thể của Mei thay đổi trong một giây."
     scene_desc "Lưng thẳng hơn. Bước chân nhẹ nhàng hơn. Nụ cười — ON."
 
+    hide mei neutral
+    show mei mask_on at center
+    with dissolve
+
     classmate "Ê Mai! Sáng nay đẹp quá ha!"
-    show mei happy
+
+    hide mei mask_on
+    show mei happy at center
+    with dissolve
+
     mei "Cám ơn nha! *cười* Bữa nay trời đẹp mà, ai cũng đẹp lên hết á."
 
     mei_inner "Script số 14: \"Khen lại khi được khen.\" Đơn giản. Hiệu quả. Không ai nghi ngờ."
 
     classmate "Mai ơi, bữa nay kiểm tra Toán ha. Mày ôn chưa?"
     mei "Ôn rồi chứ! Cũng không khó lắm đâu, cố lên nha! *nháy mắt*"
+
+    hide mei happy
+    with dissolve
 
     mei_inner "\"Không khó lắm.\" Mình thức tới 3 giờ sáng. Uống 3 ly cà phê. Gần khóc 2 lần."
     mei_inner "Nhưng đó là chuyện của Mei-bên-trong. Mei-bên-ngoài thì luôn sẵn sàng."
@@ -103,14 +136,22 @@ label chapter1_start:
     ## PART 3: TRONG LỚP HỌC — THE CLASSROOM
     ## --------------------------------------------------------
 
-    ## [BG: bg classroom — Inside classroom, desks, windows]
+    scene bg/classroom
+    with fade
+
     scene_desc "Lớp học sáng rực ánh nắng từ cửa sổ. Tiếng quạt trần xoay đều đều."
+
+    show mei neutral at right
+    with dissolve
 
     scene_desc "Mei bước vào lớp. Đúng tác phong: đến sớm 10 phút, ngồi đúng vị trí, bày sách vở ngay ngắn."
 
     mei_inner "Pháo đài đã thiết lập. Chiến trường đã sẵn sàng."
 
     ## Vy enters
+    show vy sleepy at left
+    with dissolve
+
     scene_desc "Cánh cửa lớp mở. Một cô gái tóc hơi rối bước vào — ba lô lệch vai, áo hơi nhăn, mặt vẫn còn ngái ngủ."
 
     mei_inner "Vy."
@@ -125,6 +166,11 @@ label chapter1_start:
             $ self_worth -= 3
             $ empathy += 2
             $ vy_relationship += 5
+
+            hide mei neutral
+            show mei thinking at right
+            with dissolve
+
             mei_inner "Sao nó có thể sống thoải mái như vậy nhỉ?"
             mei_inner "Không ai kỳ vọng gì ở nó. Không ai soi mói. Nó muốn fail thì fail, muốn ngủ gật thì ngủ."
             mei_inner "... Tự do. Đó là thứ mà mình không bao giờ có."
@@ -134,25 +180,49 @@ label chapter1_start:
             $ facade += 3
             $ empathy -= 3
             $ vy_relationship -= 5
+
+            hide mei neutral
+            show mei mask_on at right
+            with dissolve
+
             mei_inner "Người ta nói 'bình thường là hạnh phúc'. Nhảm nhí."
             mei_inner "Bình thường là vô hình. Bình thường là không ai nhớ tới mày."
             mei_inner "Ít nhất mình... dù có giả tạo, nhưng mình có tồn tại trong mắt mọi người."
             mei_inner "Còn nó? Không ai thèm nhớ."
 
         "Thờ ơ — Kệ, không liên quan tới mình":
+            hide mei neutral
+            show mei thinking at right
+            with dissolve
+
             mei_inner "Whatever."
             mei_inner "Mình có bài kiểm tra phải lo. Không có thời gian nghĩ về người khác."
+
+    hide vy sleepy
+    hide mei ## hide whatever mei sprite is showing
 
     ## --------------------------------------------------------
     ## PART 4: BÀI KIỂM TRA — THE TEST
     ## --------------------------------------------------------
 
-    ## [BG: bg classroom — Same, but now more tense atmosphere]
+    ## Same classroom, but tense now
+    scene bg/classroom
+    with vpunch
+
     scene_desc "Chuông reo. Giáo viên bước vào, tay cầm xấp đề kiểm tra."
+
+    show teacher neutral at left
+    with dissolve
 
     teacher "Mấy em dời bàn ra. Hôm nay kiểm tra 15 phút Toán."
 
     scene_desc "Lớp xôn xao. Tiếng kéo bàn kĩn kịt."
+
+    hide teacher neutral
+    with dissolve
+
+    show mei thinking at center
+    with dissolve
 
     mei_inner "Đây rồi."
     mei_inner "Tim đang đập 120 nhịp/phút. Tay hơi run. Dạ dày co thắt."
@@ -168,6 +238,10 @@ label chapter1_start:
     mei_inner "Câu 3... Cái này... Hình như phần mình đọc lúc 2 giờ sáng..."
     mei_inner "Mà lúc đó mình đang nửa tỉnh nửa mơ..."
 
+    hide mei thinking
+    show mei sad at center
+    with dissolve
+
     scene_desc "Mei cắn bút, nhíu mày. Cánh mũi phập phồng nhẹ."
 
     mei_inner "Bình tĩnh. BÌNH TĨNH! Mày là Mai Trần. Top 1 lớp. Không, top 1 khối."
@@ -181,6 +255,11 @@ label chapter1_start:
             $ facade -= 5
             $ self_worth += 5
             $ cheated_on_test = False
+
+            hide mei sad
+            show mei neutral at center
+            with dissolve
+
             mei_inner "Không. Mình sẽ làm những gì mình biết. Cái gì không biết thì... thì..."
             mei_inner "Thì... chấp nhận."
             scene_desc "Mei hít một hơi sâu. Bắt đầu viết — chậm, cẩn thận."
@@ -191,6 +270,11 @@ label chapter1_start:
             $ facade += 5
             $ self_worth -= 5
             $ cheated_on_test = True
+
+            hide mei sad
+            show mei mask_on at center
+            with dissolve
+
             mei_inner "Không. KHÔNG ĐƯỢC PHÉP. Mình phải điểm cao."
             mei_inner "Nếu không... Nếu mình chỉ là trung bình... Thì mình còn gì?"
             scene_desc "Mei liếc sang — vừa đủ nhanh, vừa đủ khéo. Năm tháng luyện tập cho phút giây này."
@@ -201,11 +285,19 @@ label chapter1_start:
             $ facade += 2
             $ self_worth -= 2
             $ cheated_on_test = True
+
+            hide mei sad
+            show mei thinking at center
+            with dissolve
+
             scene_desc "Mei xoay người sang bên cạnh, thì thào."
             mei "Ê... Câu 3... Công thức gì vậy?"
             scene_desc "Bạn bên cạnh liếc giáo viên, rồi vội chỉ."
             mei_inner "Cám ơn. Dù gì thì... mình cũng chỉ cần gợi ý thôi mà."
             mei_inner "... Mình tự dối mình giỏi ghê."
+
+    hide mei
+    with dissolve
 
     ## --------------------------------------------------------
     ## PART 5: KẾT QUẢ — THE RESULTS
@@ -218,11 +310,20 @@ label chapter1_start:
 
     ## Branch based on cheating
     if cheated_on_test:
+        show mei mask_on at center
+        with dissolve
+
         scene_desc "Mei nhìn xuống bài kiểm tra. 10 điểm. Đỏ chói."
         mei_inner "10. Tất nhiên là 10. Luôn luôn là 10."
         mei_inner "..."
         mei_inner "Và luôn luôn là giả."
+
+        hide mei mask_on
+        with dissolve
     else:
+        show mei sad at center
+        with dissolve
+
         scene_desc "Mei nhìn xuống bài kiểm tra. 7 điểm."
         mei_inner "7."
         mei_inner "Bảy."
@@ -233,13 +334,27 @@ label chapter1_start:
 
         ## Quick panic
         mei_inner "Nhanh — úp bài xuống. Không ai được thấy."
+
+        hide mei sad
+        show mei thinking at center
+        with dissolve
+
         scene_desc "Mei lật úp tờ kiểm tra, tay hơi run."
         mei_inner "Okay. Breathe. Không ai thấy. Mình vẫn an toàn."
 
+        hide mei thinking
+        with dissolve
+
     ## Vy's result
+    show vy neutral at left
+    with dissolve
+
     scene_desc "Phía bên kia lớp, Vy đang nhìn bài kiểm tra của mình. 4 điểm."
 
-    ## [SPRITE: vy sad — add later]
+    hide vy neutral
+    show vy shocked at left
+    with dissolve
+
     scene_desc "Vy vò đầu bức tóc, mặt méo xệch."
 
     vy "*thở dài* Haizzzz!!!"
@@ -256,17 +371,37 @@ label chapter1_start:
             $ facade += 5
             $ empathy -= 5
             $ vy_relationship -= 10
-            ## This is the original script interaction
+
+            hide vy shocked
+            show vy neutral at left
+            with dissolve
+
+            show mei mask_on at right
+            with dissolve
+
             scene_desc "Mei cầm bài kiểm tra, đi qua chỗ Vy."
 
             if cheated_on_test:
                 mei "Lại thấp điểm nữa à *cười*. Lần sau nhớ cố gắng lên, như tui nè."
                 scene_desc "Mei giơ bài 10 điểm lên, vỗ vai Vy nhẹ."
+
+                hide mei mask_on
+                show mei happy at right
+                with dissolve
+
                 mei "Hì. *cười rồi đi chỗ khác*"
+
+                hide mei happy
+                with dissolve
             else:
-                ## Even with 7, Mai can still perform superiority
                 mei "Sao rồi? Lại trượt hả? *cười nhẹ* Cố lên nha."
                 scene_desc "Mei vỗ vai Vy, nụ cười hoàn hảo. Nhưng không giơ bài lên."
+
+                hide mei mask_on
+                with dissolve
+
+            hide vy neutral
+            with dissolve
 
             mei_inner "..."
             mei_inner "Sao mình lại làm vậy?"
@@ -278,6 +413,13 @@ label chapter1_start:
         "Im lặng, giả vờ không thấy — mình cũng chẳng khá hơn đâu":
             $ facade += 0
             $ empathy += 2
+
+            hide vy shocked
+            with dissolve
+
+            show mei thinking at center
+            with dissolve
+
             mei_inner "..."
             mei_inner "4 điểm. Nó fail."
             if cheated_on_test:
@@ -287,29 +429,66 @@ label chapter1_start:
             mei_inner "Kệ. Không phải việc của mình."
             scene_desc "Mei quay mặt sang cửa sổ, giả vờ nhìn trời."
 
+            hide mei thinking
+            with dissolve
+
         "Nói gì đó tử tế — thật lòng":
             $ facade -= 5
             $ empathy += 7
             $ self_worth += 3
             $ vy_relationship += 10
+
+            hide vy shocked
+            show vy neutral at left
+            with dissolve
+
+            show mei neutral at right
+            with dissolve
+
             scene_desc "Mei do dự một lúc. Rồi đứng dậy, đi qua bàn Vy."
 
             mei "Ê."
+
+            hide vy neutral
+            show vy shocked at left
+            with dissolve
+
             vy "*ngước lên* Hả...?"
 
             if cheated_on_test:
+                hide mei neutral
+                show mei sad at right
+                with dissolve
+
                 mei "Đừng buồn quá. Bài này... khó thiệt."
                 mei_inner "Mình biết vì mình cũng không làm được. Nhưng mình không nói câu đó."
             else:
+                hide mei neutral
+                show mei sad at right
+                with dissolve
+
                 mei "Bài này khó ha. Tui cũng... không tốt lắm."
+
+                hide vy shocked
+                show vy shocked at left
+                with dissolve
+
                 vy "Hả? Mày mà? Nhưng... mày luôn điểm cao mà..."
                 mei "... Không phải lúc nào cũng vậy đâu."
                 mei_inner "Lần đầu tiên... nói thật."
                 mei_inner "Cảm giác... lạ lắm. Nhẹ. Nhưng cũng... sợ."
 
+            hide vy shocked
+            show vy neutral at left
+            with dissolve
+
             vy "..."
             vy "Ờ... Cám ơn... Mai."
             scene_desc "Vy nhìn Mei với ánh mắt hơi ngạc nhiên — như vừa thấy mặt trăng giữa ban ngày."
+
+            hide mei sad
+            hide vy neutral
+            with dissolve
 
     ## --------------------------------------------------------
     ## PART 7: SAU GIỜ HỌC — AFTER CLASS
@@ -318,8 +497,13 @@ label chapter1_start:
     scene_desc "Chuông reo. Hết tiết."
     scene_desc "Học sinh ùa ra khỏi lớp như nước vỡ bờ."
 
-    ## [BG: bg school_hallway — Hallway, afternoon light]
+    scene bg/school_hallway
+    with fade
+
     scene_desc "Mei đi dọc hành lang. Xung quanh, bạn bè cười đùa, chia nhóm ra về."
+
+    show mei mask_on at center
+    with dissolve
 
     mei_inner "Một ngày nữa qua đi."
     mei_inner "Mask — On. Performance — acceptable. Damage — contained."
@@ -330,6 +514,17 @@ label chapter1_start:
 
         "Đi một mình — cần thời gian để xả cái mask":
             $ facade -= 2
+
+            hide mei mask_on
+            show mei neutral at center
+            with dissolve
+
+            scene bg/street_evening
+            with fade
+
+            show mei neutral at center
+            with dissolve
+
             scene_desc "Mei đi một mình ra cổng trường, tai nghe đã cắm sẵn."
             mei_inner "Playlist 'dành cho alien trầm cảm'. Track 47. Repeat."
             mei_inner "Đi bộ về nhà mất 1,247 bước. Mình đếm mỗi ngày."
@@ -337,18 +532,40 @@ label chapter1_start:
             scene_desc "Ánh nắng chiều vàng trải dài trên con đường. Mei đi bộ, bóng mình kéo dài phía sau."
             mei_inner "Bóng mình... Trông cô đơn vậy ta."
 
+            hide mei neutral
+            with dissolve
+
         "Đi cùng đám bạn — duy trì hình ảnh xã hội":
             $ facade += 3
             $ empathy += 1
+
+            hide mei mask_on
+            show mei happy at center
+            with dissolve
+
             scene_desc "Mei hòa vào đám bạn cùng lớp, cười nói rôm rả."
             classmate "Mai ơi, cuối tuần đi chơi không? Tụi tao đi Nowzone!"
             mei "Ồ hay quá! Để tui xem lịch ha! *cười*"
+
+            hide mei happy
+            with dissolve
+
             mei_inner "Script số 27: 'Luôn tỏ ra hứng thú, hẹn xem lịch, rồi từ chối vào phút cuối.' Kinh điển."
             mei_inner "Mình không ghét bọn nó. Mình chỉ... mệt."
             mei_inner "Mệt vì phải diễn. Nhưng cũng mệt vì sợ bị bỏ rơi nếu không diễn."
 
         "Nán lại thêm — muốn ở trường thêm tí, vì về nhà cũng chẳng khá hơn":
             $ self_worth -= 2
+
+            hide mei mask_on
+            with dissolve
+
+            scene bg/classroom
+            with fade
+
+            show mei sad at center
+            with dissolve
+
             scene_desc "Mei ngồi lại lớp sau khi mọi người đã đi. Lớp vắng tanh."
             mei_inner "Nhà. Về nhà."
             mei_inner "Nghĩa là đối mặt với mẹ hỏi 'hôm nay điểm bao nhiêu?'"
@@ -357,17 +574,34 @@ label chapter1_start:
             mei_inner "... Loop vô tận."
             scene_desc "Mei nhìn ra cửa sổ. Nắng chiều hắt qua những chấn song, vẽ những vệt sáng dài trên sàn."
             mei_inner "Nắng đẹp thật. Nhưng đẹp kiểu buồn."
+
+            hide mei sad
+            show mei neutral at center
+            with dissolve
+
+            ## Spot Vy in the hallway
+            show vy sleepy at left
+            with dissolve
+
             scene_desc "Trong khoảng lặng đó, phía hành lang, Mei thoáng thấy một bóng người đang ngồi lại — Vy."
             mei_inner "... Nó cũng ở lại. Có vẻ nó ngủ gật thì phải."
             mei_inner "Heh. Bình thường quá nhể."
             scene_desc "Mei mỉm cười nhẹ — lần này là thật — rồi đứng dậy đi về."
 
+            hide vy sleepy
+            hide mei neutral
+            with dissolve
+
     ## --------------------------------------------------------
     ## PART 8: VỀ NHÀ — GOING HOME
     ## --------------------------------------------------------
 
-    scene black with fade
-    ## [BG: bg street_evening — Evening street, sunset colors]
+    scene black
+    with fade
+
+    scene bg/street_evening
+    with fade
+
     scene_desc "Con đường về nhà. Nắng chiều nhuộm cam cả bầu trời."
 
     mei_inner "Mình tự hỏi..."
@@ -387,8 +621,13 @@ label chapter1_start:
     ## PART 9: VỀ TỚI NHÀ — MẸ
     ## --------------------------------------------------------
 
-    ## [BG: bg mei_home — Living room, warm but oppressive lighting]
+    scene bg/mei_home
+    with fade
+
     scene_desc "Mei mở cửa nhà. Mùi nước lau sàn. Mùi cơm chiều."
+
+    show mei mask_on at right
+    with dissolve
 
     mom "Về rồi hả con?"
     mei "Dạ."
@@ -408,7 +647,14 @@ label chapter1_start:
                 mom "Giỏi! Vậy là phải giữ vậy hoài nha con."
                 mei_inner "\"Giữ vậy hoài.\" Không phải khen. Đó là mệnh lệnh."
                 mei_inner "Không phiền bao giờ cho phép mình nghỉ ngơi."
+
+                hide mei mask_on
+                with dissolve
             else:
+                hide mei mask_on
+                show mei sad at right
+                with dissolve
+
                 mei "Dạ, Toán. 7 điểm ạ."
                 mom "7? Sao ít vậy? Mấy đứa khác bao nhiêu?"
                 mei_inner "Không hỏi mình có ổn không. Hỏi mình so với mấy đứa khác."
@@ -419,20 +665,36 @@ label chapter1_start:
                 $ self_worth -= 3
                 $ facade += 2
 
+                hide mei sad
+                with dissolve
+
         "Nói dối — 10 điểm":
             $ facade += 5
             $ self_worth -= 3
+
             mei "Dạ, Toán. 10 điểm ạ."
             mom "Tốt. Giữ vậy nha."
             mei_inner "10 điểm. Hoàn hảo. Giả dối. Như mọi khi."
             mei_inner "Nhưng ít nhất... mẹ không càm ràm. Và mình... an toàn."
+
+            hide mei mask_on
+            with dissolve
+
             scene_desc "Mei đi vào phòng, khóa cửa lại."
             mei_inner "Safe. Pháo đài vẫn đứng vững."
             mei_inner "Mệt vãi."
 
         "Né câu hỏi — đổi chủ đề":
+            hide mei mask_on
+            show mei happy at right
+            with dissolve
+
             mei "Dạ, bình thường mẹ ơi. À, mẹ nấu gì ngon vậy?"
             mom "Canh chua cá lóc. Đi rửa tay rồi ăn."
+
+            hide mei happy
+            with dissolve
+
             mei_inner "Crisis averted. Tạm thời."
             mei_inner "Nhưng nó sẽ quay lại. Nó luôn quay lại."
 
@@ -440,13 +702,22 @@ label chapter1_start:
     ## PART 10: MỘT MÌNH TRONG PHÒNG — ALONE
     ## --------------------------------------------------------
 
-    ## [BG: bg mei_room_night — Mei's room, night, only desk lamp]
+    scene bg/mei_room_night
+    with fade
+
     scene_desc "Đêm. Căn phòng nhỏ. Chỉ còn ánh đèn bàn và ánh màn hình laptop."
 
     mei_inner "Okay. Cuối cùng thì cũng đến phần mình thích nhất trong ngày."
     mei_inner "Phần mà mình được... gỡ mặt nạ ra."
 
+    show mei neutral at center
+    with dissolve
+
     scene_desc "Mei thả mình xuống ghế, buông tóc, cởi bỏ cái dáng vẻ chỉn chu. Vai xụ xuống. Mặt trở lại vẻ mệt mỏi thật."
+
+    hide mei neutral
+    show mei sad at center
+    with dissolve
 
     mei_inner "AHHHH... Cuối cùng."
     mei_inner "Giờ thì... Hành tinh Maitopia, ta đã trở về."
@@ -461,8 +732,13 @@ label chapter1_start:
     mei_inner "Mình chỉ là... Mình."
     mei_inner "Một alien lạc trên Trái Đất."
 
+    hide mei sad
+    with dissolve
+
     ## Transition to Chapter 2
-    scene black with fade
+    scene black
+    with fade
+
     pause 0.5
 
     mei_inner "Và đêm nay... đêm nay..."
